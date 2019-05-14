@@ -1,0 +1,97 @@
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    margin-top: 60px;
+}
+
+body {
+    background-color: #78a6fc;
+}
+
+button {
+    background-color: #78a6fc;
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+    background-position: 50% 3%;
+    background-image: url(../assets/tba2.jpg);
+    font-weight: bold;
+
+    color: white;
+    margin-right: 80px;
+    margin-left: 80px;
+    height: 100px;
+    width: 200px;
+    padding-left: 135px;
+    padding-bottom: 60px;
+}
+
+#fetchfromInput {
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#fetchfromInputText {
+    text-align: center;
+    color: white;
+}
+
+.bodyText {
+    padding-left: 50px;
+}
+  
+h1 {
+    color: white;
+    text-align: left;
+    font-weight: normal;
+}
+
+h2 {
+    color: white;
+    text-align: left;
+    font-weight: normal;
+}
+  
+p {
+    text-align: left;
+    font-family: verdana;
+    font-size: 16px;
+    color: #2c3039;
+}
+
+input {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th, td {
+    padding: 6px;
+    border-bottom: 1px solid #ddd;
+}
+
+table { 
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    height: 40px;
+    width: 20%;
+    background-color: #6c95e2;
+    color: white;
+    text-align: center;
+}
+
+td {
+    height: 30px;
+    text-align: left;
+}

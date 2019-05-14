@@ -1,0 +1,34 @@
+{
+    "albums": [
+        {
+            "id": 1,
+            "name": "Mohnomishe",
+            "artist": ":zoviet*france:",
+            "datepublished": "1983"
+        },
+        {
+            "id": 2,
+            "name": "Cascade",
+            "artist": "William Basinski",
+            "datepublished": "2015"
+        },
+		{
+            "id": 3,
+            "name": "AZD",
+            "artist": "Actress",
+            "datepublished": "2017"
+        },
+		{
+            "id": 4,
+            "name": "Motor",
+            "artist": "Gescom",
+            "datepublished": "1996"
+        },
+		{
+            "id": 5,
+            "name": "Bloweyelashwish",
+            "artist": "lovesliescrushing",
+            "datepublished": "1992"
+        }
+    ]
+}
