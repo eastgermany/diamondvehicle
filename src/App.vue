@@ -1,21 +1,37 @@
 <template>
+
   <div id="app">
+
     <div id="header">
       <button v-on:click="activepage = 'home'">HOME</button>
       <button v-on:click="activepage = 'about'">ABOUT</button>
       <button v-on:click="activepage = 'fetch'">FETCH</button>
+      <button v-on:click="activepage = 'three'">THREE</button>
     </div>
-    <div id="fetchfromInput">
+
+    <div id="appFetchFromInput">
       <input v-model="fetchfrom">
-      <p id="fetchfromInputText">Fetch albums.json at URL above.</p>
+      <p id="appFetchFromInputText">Fetch albums.json at URL above.</p>
     </div>
+
     <div id="body">
       <ComponentHome v-if="activepage == 'home'"></ComponentHome>
       <ComponentAbout v-if="activepage == 'about'"></ComponentAbout>
 
-      <ComponentFetchTable v-bind:url="fetchfrom" v-if="activepage == 'fetch'"></ComponentFetchTable>
+      <ComponentFetchTable  v-if="activepage == 'fetch'"
+                            v-bind:url="fetchfrom">
+      </ComponentFetchTable>
         <!-- v-bind tells parser fetchfrom is JS -->
+      <ComponentThree       v-if="activepage == 'three'"
+                            v-bind:cmprotspeed="rotspeed">
+      </ComponentThree>
     </div>
+
+    <div id="foot">
+      <button class="footbutton" v-if="activepage == 'three'" v-on:click="rotspeed *= 2">FASTER</button>
+      <button class="footbutton" v-if="activepage == 'three'" v-on:click="rotspeed /= 2">SLOWER</button>
+    </div>
+
   </div>
 </template>
 
@@ -25,21 +41,25 @@
 import ComponentHome from './components/ComponentHome'
 import ComponentAbout from './components/ComponentAbout'
 import ComponentFetchTable from './components/ComponentFetchTable'
+import ComponentThree from './components/ComponentThree'
 
 export default {
   name: 'App',
   components: {
     ComponentHome,
     ComponentAbout,
-    ComponentFetchTable
+    ComponentFetchTable,
+    ComponentThree
   },
   created: function () {
     this.fetchfrom = 'http://localhost:3000/albums' // default fetch URL
+    this.rotspeed = 5; // default cube rotation speed
   },
   data () {
       return {
         activepage: '',
-        fetchfrom: ''
+        fetchfrom: '',
+        rotspeed: ''
       }
   }
 }

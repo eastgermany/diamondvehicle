@@ -10,6 +10,11 @@ body {
     background-color: #78a6fc;
 }
 
+.footbutton {
+    height: 50px;
+    padding-top: 5px;
+}
+
 button {
     background-color: #78a6fc;
     background-repeat: no-repeat;
@@ -27,18 +32,22 @@ button {
     padding-bottom: 60px;
 }
 
-#fetchfromInput {
+#appFetchFromInput {
     font-weight: bold;
     margin-top: 25px;
     margin-bottom: 25px;
 }
 
-#fetchfromInputText {
+#appFetchFromInputText {
     text-align: center;
     color: white;
 }
 
-.bodyText {
+#cmpThreeRenderer {
+
+}
+
+#cmpAboutText {
     padding-left: 50px;
 }
   
