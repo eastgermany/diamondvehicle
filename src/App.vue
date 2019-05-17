@@ -22,9 +22,9 @@
                             v-bind:url="fetchfrom">
       </ComponentFetchTable>
         <!-- v-bind tells parser fetchfrom is JS -->
-      <ComponentThree       v-if="activepage == 'three'"
+      <ComponentTHREE       v-if="activepage == 'three'"
                             v-bind:cmprotspeed="rotspeed">
-      </ComponentThree>
+      </ComponentTHREE>
     </div>
 
     <div id="foot">
@@ -41,7 +41,7 @@
 import ComponentHome from './components/ComponentHome'
 import ComponentAbout from './components/ComponentAbout'
 import ComponentFetchTable from './components/ComponentFetchTable'
-import ComponentThree from './components/ComponentThree'
+import ComponentTHREE from './components/ComponentTHREE'
 
 export default {
   name: 'App',
@@ -49,7 +49,7 @@ export default {
     ComponentHome,
     ComponentAbout,
     ComponentFetchTable,
-    ComponentThree
+    ComponentTHREE
   },
   created: function () {
     this.fetchfrom = 'http://localhost:3000/albums' // default fetch URL

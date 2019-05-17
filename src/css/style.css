@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #78a6fc;
+    background-color: black; /* #78a6fc; */
 }
 
 .footbutton {
@@ -41,10 +41,6 @@ button {
 #appFetchFromInputText {
     text-align: center;
     color: white;
-}
-
-#cmpThreeRenderer {
-
 }
 
 #cmpAboutText {
