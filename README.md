@@ -1,1 +1,9 @@
-Built with Vue-CLI and Webpack - run serve in /dist and navigate to URL. Basic website whose construction served as practice using JavaScript (Vue.js, Fetch), CSS and HTML. "App" parent component passes URL in input bar as prop to child component handling fetching and presentation of JSON. Child component iterates over objects in "albums" array and prints a row for each. As a study in particular technologies, the website has limited reusability, and obvious improvements include: better-looking CSS, improved manipulation of JSON array, including HTTP POST functionality, ordering of table rows, and ability to fetch and process different JSON file structures. Webpack build in /dist.
+Website serving as on-going experimentation and study of web technologies including JavaScript (Vue.js, THREE.js, Fetch), HTML, and CSS.
+
+To build from source code:
+
+1) Clone repository.
+2) CD to root folder and run `npm install` to install Node dependencies.
+3) Run `npm run build` to build from source code with Webpack.
+4) CD to /dist and run `serve`.
+5) Navigate to specified localhost and port.
