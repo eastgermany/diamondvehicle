@@ -12,24 +12,30 @@ body {
 
 .footbutton {
     height: 50px;
+    width: 290px;
     padding-top: 5px;
 }
 
 button {
-    background-color: #78a6fc;
+    background-color: #001a33;
     background-repeat: no-repeat;
     background-size: 200px 200px;
-    background-position: 50% 3%;
+    background-position: 40% 253%;
     background-image: url(../assets/tba2.jpg);
     font-weight: bold;
 
-    color: white;
+    color: black;
+    font-size: 20pt;
     margin-right: 80px;
-    margin-left: 80px;
+    margin-left: 20px;
     height: 100px;
-    width: 200px;
+    width: 240px;
     padding-left: 135px;
     padding-bottom: 60px;
+    border: none;
+
+    text-align: center;
+    line-height: 35px;
 }
 
 #appFetchFromInput {
