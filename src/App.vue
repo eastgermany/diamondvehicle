@@ -15,16 +15,18 @@
     </div>
 
     <div id="body">
-      <ComponentHome v-if="activepage == 'home'"></ComponentHome>
-      <ComponentAbout v-if="activepage == 'about'"></ComponentAbout>
+      <ComponentHome                
+                                    v-if="activepage == 'home'"/>
+      <ComponentAbout               
+                                    v-if="activepage == 'about'"/>
 
-      <ComponentFetchTable  v-if="activepage == 'fetch'"
-                            v-bind:url="fetchfrom">
-      </ComponentFetchTable>
+      <ComponentFetchTable          
+                                    v-if="activepage == 'fetch'"
+                                    v-bind:url="fetchfrom"/>
         <!-- v-bind tells parser fetchfrom is JS -->
-      <ComponentTHREE       v-if="activepage == 'three'"
-                            v-bind:cmprotspeed="rotspeed">
-      </ComponentTHREE>
+      <ComponentTHREEOscDemo  
+                                    v-bind:cmprotspeed="rotspeed"
+                                    v-if="activepage == 'three'"/>
     </div>
 
     <div id="foot">
@@ -41,7 +43,9 @@
 import ComponentHome from './components/ComponentHome'
 import ComponentAbout from './components/ComponentAbout'
 import ComponentFetchTable from './components/ComponentFetchTable'
-import ComponentTHREE from './components/ComponentTHREE'
+
+// THREE demos
+import ComponentTHREEOscDemo from './components/three/ComponentTHREEOscDemo'
 
 export default {
   name: 'App',
@@ -49,7 +53,7 @@ export default {
     ComponentHome,
     ComponentAbout,
     ComponentFetchTable,
-    ComponentTHREE
+    ComponentTHREEOscDemo
   },
   created: function () {
     this.fetchfrom = 'http://localhost:3000/albums' // default fetch URL

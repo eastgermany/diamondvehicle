@@ -8,31 +8,31 @@
 /* eslint-disable indent, semi, eol-last, space-in-parens, padded-blocks */
 
 import * as THREE from 'three';
-import TPOscArray from '../js/threepointosc';
+import TPOscArray from '../../js/threepointosc';
+
+import ComponentTHREEBase from './ComponentTHREEBase.vue';
 
 export default {
 
-  name: 'ComponentTHREE',
-
+  name: 'ComponentTHREEOscDemo',
+  extends: ComponentTHREEBase,
+  
   data () {
     return {
-        renderer: Object,
-        scene: Object,
-        camera: Object,
-        meshleft: Object,
-        meshright: Object,
-        lines: Object,
-        tposcarray: Array
+        meshleft: Object, // demo
+        meshright: Object, // demo
+        lines: Object, // demo
+        tposcarray: Array // demo
     }
   },
 
   props: {
-      cmprotspeed: Number // mesh rotation speed prop
+      cmprotspeed: Number // mesh rotation speed prop - demo
   },
 
   mounted: function () {
 
-    this.init();
+    this.initBase();
 
     this.initLines();
     this.animateLines();
@@ -41,25 +41,11 @@ export default {
     this.animateMesh();
 
     this.initTPOscArray();
-    this.animateTPOscArray(5);
+    this.animateTPOscArray(5); // arg - offset
+
   },
 
   methods: {
-
-    // INIT MAIN
-
-    init: function () {
-        let domEl = document.getElementById('cmpTHREERenderer');
-
-        this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-
-        this.renderer = new THREE.WebGLRenderer();
-        this.renderer.setSize( window.innerWidth / 1.5, window.innerHeight / 1.5 );
-        domEl.appendChild( this.renderer.domElement );
-
-        this.camera.position.z = 5;
-    },
 
     // ******** MESH ********
 
@@ -75,7 +61,6 @@ export default {
         this.scene.add( this.meshright );
 
     },
-
     animateMesh: function () {
 
         requestAnimationFrame( this.animateMesh );
@@ -90,8 +75,6 @@ export default {
         this.animMoveMeshToVertex()
 
     },
-
-    // reduce to reusable
     animMoveMeshToVertex: function () {
 
         this.meshleft.position.x = this.lines.geometry.vertices[0].getComponent(0);
@@ -105,7 +88,7 @@ export default {
         // console.log(comp);
     },
 
-    // ******** LINES ********
+        // ******** LINES ********
 
     initLines: function () {
 
@@ -119,6 +102,8 @@ export default {
         this.lines = new THREE.Line( geometry, material );
         this.scene.add( this.lines )
 
+    
+
     },
 
     animateLines: function () {
@@ -130,12 +115,21 @@ export default {
 
         var midvertex = 2 * Math.sin( currtime * 0.0005 );
 
-        this.lines.geometry.vertices[1].set( 0, midvertex, 0); // index 1 is midpoint
+        // this.animRandomiseLineEndpoints();
+
+        this.lines.geometry.vertices[1].setComponent( 1, midvertex ); // index 1 is midpoint
         this.lines.geometry.verticesNeedUpdate = true;
 
     },
 
-    // ******** THREE POINT OSCILLATOR ********
+    animRandomiseLineEndpoints: function () {
+
+        this.lines.geometry.vertices[0].setComponent(0, (Math.random(4) / 25));
+        this.lines.geometry.vertices[0].setComponent(2, (Math.random(4) / 25));
+
+    },
+
+        // ******** THREE POINT OSCILLATOR ********
 
     initTPOscArray: function () {
 
@@ -149,7 +143,13 @@ export default {
 
       this.tposcarray = TPOscArray(start, end, 9);
 
-      this.debugLogVectorsInArray(this.tposcarray);
+      console.log(this.tposcarray);
+
+      this.tposcarray.forEach( (line) => {
+
+        this.scene.add( line );
+
+      })
 
       // console.log(this.tposcarray);
 
@@ -169,46 +169,25 @@ export default {
       for (i = 0; i < this.tposcarray.length; i++) {
 
         newY = 2 * Math.sin( ( currtime * 0.0006 ) + this.processOffsetWithIndex( i, offset ) );
-
-        this.tposcarray[i].geometry.vertices[1].setComponent( 1, newY );
+ 
+        this.tposcarray[i].geometry.vertices[1].setComponent( 1, newY ); 
         this.tposcarray[i].geometry.verticesNeedUpdate = true;
 
-        this.scene.add( this.tposcarray[i] );
+        // this.scene.add( this.tposcarray[i] );
+
       }
     },
 
     processOffsetWithIndex: function (index, offset) {
 
       var newoffset;
-      newoffset = ( ( index * 300 ) * offset ) / 20000000;
+      newoffset = ( ( index * 300 ) * offset ) / 2000000;
 
       // console.log(newoffset)
 
       return newoffset;
 
     },
-
-    // ******** DEBUG FUNCTIONS ********
-
-    debugLogVectorsInArray: function (array) {
-
-      var i;
-
-      for (i = 0; i < array.length; i++) {
-        this.debugLogVector( array[i] );
-      }
-
-    },
-
-    debugLogVector: function (vector) {
-
-      var vecmid = vector.geometry.vertices[1];
-
-      var string = '';
-      string = vecmid.getComponent(0) + ' ' + vecmid.getComponent(1) + ' ' + vecmid.getComponent(2);
-      // console.log(string);
-
-    }
   }
 }
 </script>
