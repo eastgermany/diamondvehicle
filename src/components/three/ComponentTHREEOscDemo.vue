@@ -16,7 +16,6 @@ export default {
 
   name: 'ComponentTHREEOscDemo',
   extends: ComponentTHREEBase,
-  
   data () {
     return {
         meshleft: Object, // demo
@@ -25,11 +24,9 @@ export default {
         tposcarray: Array // demo
     }
   },
-
   props: {
       cmprotspeed: Number // mesh rotation speed prop - demo
   },
-
   mounted: function () {
 
     this.initBase();
@@ -102,10 +99,7 @@ export default {
         this.lines = new THREE.Line( geometry, material );
         this.scene.add( this.lines )
 
-    
-
     },
-
     animateLines: function () {
 
         requestAnimationFrame( this.animateLines );
@@ -121,14 +115,12 @@ export default {
         this.lines.geometry.verticesNeedUpdate = true;
 
     },
-
     animRandomiseLineEndpoints: function () {
 
         this.lines.geometry.vertices[0].setComponent(0, (Math.random(4) / 25));
         this.lines.geometry.vertices[0].setComponent(2, (Math.random(4) / 25));
 
     },
-
         // ******** THREE POINT OSCILLATOR ********
 
     initTPOscArray: function () {
@@ -143,18 +135,12 @@ export default {
 
       this.tposcarray = TPOscArray(start, end, 9);
 
-      console.log(this.tposcarray);
-
       this.tposcarray.forEach( (line) => {
 
         this.scene.add( line );
 
       })
-
-      // console.log(this.tposcarray);
-
     },
-
     animateTPOscArray: function (offset) {
 
       requestAnimationFrame( this.animateTPOscArray );
@@ -172,19 +158,13 @@ export default {
  
         this.tposcarray[i].geometry.vertices[1].setComponent( 1, newY ); 
         this.tposcarray[i].geometry.verticesNeedUpdate = true;
-
-        // this.scene.add( this.tposcarray[i] );
-
+        
       }
     },
-
     processOffsetWithIndex: function (index, offset) {
 
       var newoffset;
       newoffset = ( ( index * 300 ) * offset ) / 2000000;
-
-      // console.log(newoffset)
-
       return newoffset;
 
     },

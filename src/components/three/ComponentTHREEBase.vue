@@ -11,7 +11,7 @@ import * as THREE from 'three';
 
 export default {
 
-  name: 'ComponentTHREE',
+  name: 'ComponentTHREEBase',
 
   data () {
     return {

@@ -1,5 +1,14 @@
 // linter disables for THREE.js
-/* eslint-disable indent, semi, eol-last, space-in-parens, padded-blocks, no-unused-vars */
+/* eslint-disable
+
+indent,
+semi,
+eol-last,
+space-in-parens,
+padded-blocks,
+es6
+
+*/
 
 import * as THREE from 'three';
 
@@ -15,7 +24,7 @@ function ThreePointOscGeometry (start, end) { // start & end are THREE.Vector3, 
 
         mid = ( start.getComponent(i) + end.getComponent(i) / 2 );
         midvec.setComponent(i, mid);
-        
+
     }
     geometry.vertices.push(start);
     geometry.vertices.push(midvec);
