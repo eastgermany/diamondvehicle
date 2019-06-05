@@ -1,3 +1,17 @@
+/* Table of Contents: 
+
+    1)  Base
+    2)  Buttons
+    3)  Tables
+    4)  Inputs
+    5)  Page: About
+    6)  Page: Fetch
+
+*/
+
+
+/******************* BASE *******************/
+
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -10,49 +24,6 @@ body {
     background-color: black; /* #78a6fc; */
 }
 
-.footbutton {
-    height: 50px;
-    width: 290px;
-    padding-top: 5px;
-}
-
-button {
-    background-color: #001a33;
-    background-repeat: no-repeat;
-    background-size: 200px 200px;
-    background-position: 40% 253%;
-    background-image: url(../assets/tba2.jpg);
-    font-weight: bold;
-
-    color: black;
-    font-size: 20pt;
-    margin-right: 80px;
-    margin-left: 20px;
-    height: 100px;
-    width: 240px;
-    padding-left: 135px;
-    padding-bottom: 60px;
-    border: none;
-
-    text-align: center;
-    line-height: 35px;
-}
-
-#appFetchFromInput {
-    font-weight: bold;
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-#appFetchFromInputText {
-    text-align: center;
-    color: white;
-}
-
-#cmpAboutText {
-    padding-left: 50px;
-}
-  
 h1 {
     color: white;
     text-align: left;
@@ -72,20 +43,47 @@ p {
     color: #2c3039;
 }
 
-input {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+/******************* BUTTONS *******************/
+
+button {
+    
+    background-color: #001a33;
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+    background-position: 40% 253%;
+    /* background-image: url(../assets/tba2.jpg); */
+    font-weight: bold;
+
+    color: black;
+    font-size: 20pt;
+    margin-right: 80px;
+    margin-left: 20px;
+    height: 100px;
+    width: 240px;
+    padding-left: 135px;
+    padding-bottom: 60px;
+    border: none;
+
+    text-align: center;
+    line-height: 35px;
 }
+
+.footbutton {
+    height: 50px;
+    width: 290px;
+    padding-top: 5px;
+}
+
+/******************* TABLES *******************/
 
 table, th, td {
     border-collapse: collapse;
-    background-color: white;
+    background-color: #2c3039;
 }
 
 th, td {
     padding: 6px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #2c3039;
 }
 
 table { 
@@ -97,7 +95,7 @@ table {
 th {
     height: 40px;
     width: 20%;
-    background-color: #6c95e2;
+    background-color: #001a33;
     color: white;
     text-align: center;
 }
@@ -105,4 +103,37 @@ th {
 td {
     height: 30px;
     text-align: left;
+}
+
+/******************* INPUTS *******************/
+
+input {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/******************* PAGE: ABOUT *******************/
+
+#cmpAboutText {
+    padding-left: 50px;
+}
+
+/******************* PAGE: FETCH *******************/
+
+#appFetchFromInput {
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#appFetchFromInputText {
+    text-align: center;
+    color: white;
+}
+
+input {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
